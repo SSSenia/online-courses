@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: '', component: DetailedCourseLayoutComponent },
+      { path: ':courseId', component: DetailedCourseLayoutComponent },
       { path: '**', redirectTo: '', pathMatch: 'full' }
     ])
   ]
