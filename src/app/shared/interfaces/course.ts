@@ -9,6 +9,7 @@ export interface ICourse {
   status: string,
   description: string,
   duration: number,
+  lessonsCount: number,
   previewImageLink: string,
   rating: number,
   meta: IMeta,

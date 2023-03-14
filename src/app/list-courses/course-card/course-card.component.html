@@ -1,1 +1,20 @@
-<p>course-card works!</p>
+<a [routerLink]="['/course', course.id]">
+  <article class="card">
+    <img [src]="course.previewImageLink + '/cover.webp'" alt="preview" class="card__img">
+    <h2 class="card__title">{{course.title}}</h2>
+    <div class="card__description">{{course.description}}</div>
+    <div class="options">
+      <div class="options__option">
+        <div class="options__title options__title--lessons">Lessons: </div>
+        <div class="options__content">{{course.lessonsCount}}</div>
+      </div>
+      <div class="options__option">
+        <div class="options__title options__title--rating">Rating:</div>
+        <div class="options__content">{{course.rating}}</div>
+      </div>
+    </div>
+    <ul class="tags">
+      <li class="tags__tag" *ngFor="let tag of course.tags">{{tag}}</li>
+    </ul>
+  </article>
+</a>

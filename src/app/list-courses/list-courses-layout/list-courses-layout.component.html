@@ -1,1 +1,12 @@
-<pre>{{courses$ | async | json}}</pre>
+<main class="main" *ngIf="courses$ | async as courses">
+  <section class="list">
+    <app-course-card class="list__card" *ngFor="let course of courses" [course]=course></app-course-card>
+  </section>
+  <nav class="pages">
+    <a *ngFor="let page of availablePages" [routerLink]="['/courses/', page]">
+      <div routerLinkActive="pages__page--active" class="pages__page">
+        {{page}}
+      </div>
+    </a>
+  </nav>
+</main>
