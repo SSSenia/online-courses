@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { map, Observable, switchMap } from 'rxjs';
+import { catchError, EMPTY, map, Observable, switchMap } from 'rxjs';
 import { ICourse } from 'src/app/shared/interfaces/course';
 import { ICourses } from 'src/app/shared/interfaces/courses';
 import { CoursesService } from 'src/app/shared/services/courses.service';
@@ -36,8 +36,11 @@ export class ListCoursesLayoutComponent implements OnInit {
         if (!+this.page || !clippedCourses.length)
           this.router.navigate(['/courses/1']);
         return clippedCourses;
-      })
-    )
+      }),
+      catchError((err) => {
+        this.router.navigate(['/error', `${err.status} ${err.statusText}`])
+        return EMPTY;
+      }));
   }
 
   public calculateAvailablePages(length: number): void {

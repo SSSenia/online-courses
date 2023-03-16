@@ -1,0 +1,16 @@
+.error {
+  height: calc(100vh - 171px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--light);
+  flex-direction: column;
+
+  &__message {
+    font-size: 3vw;
+  }
+
+  &__code {
+    font-size: 4vw;
+  }
+}
