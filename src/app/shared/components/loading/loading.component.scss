@@ -1,0 +1,14 @@
+.loader {
+  margin: auto;
+  background-color: var(--light-low);
+  width: 20vw;
+  height: 15px;
+  animation: load 1.4s linear infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes load {
+  0% { transform: translate(-40vw); }
+  50% { transform: translate(40vw); }
+  100% { transform: translate(-40vw); }
+}

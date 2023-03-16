@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { HeadersInterceptor } from './shared/headers.interceptor';
 
 @NgModule({
   declarations: [
@@ -19,9 +18,7 @@ import { HeadersInterceptor } from './shared/headers.interceptor';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HeadersInterceptor, multi: true}
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

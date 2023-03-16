@@ -6,10 +6,9 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  outline: 1px solid var(--light);
 
   &:hover {
-    // background-color: var(--accent);
+    transition-duration: .2s;
     outline: 5px solid var(--light);
   }
 

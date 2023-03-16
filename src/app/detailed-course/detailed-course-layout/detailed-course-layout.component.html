@@ -1,1 +1,36 @@
-<pre>{{course$ | async | json}}</pre>
+<div class="wrapper">
+  <main class="main" *ngIf="course$ | async as course; else loading">
+    <section class="about">
+      <img [src]="course.previewImageLink + '/cover.webp'" alt="preview-image" class="about__image">
+      <h2 class="about__title">{{course.title}}</h2>
+      <div class="about__description">{{course.description}}</div>
+      <div class="about__columns">
+        <section class="column">
+          <h2 class="column__title">Properties:</h2>
+          <ul class="column__list">
+            <li class="column__item">Launch date: {{course.launchDate | date:'MMM d, y'}}</li>
+            <li class="column__item">Launch status: {{course.status}}</li>
+            <li class="column__item">Duration course: {{course.duration}}</li>
+            <li class="column__item">Rating course: {{course.rating}}</li>
+          </ul>
+        </section>
+        <section class="column">
+          <h2 class="column__title">Skills:</h2>
+          <ul class="column__list">
+            <li class="column__item" *ngFor="let skill of course.meta.skills">{{skill}}</li>
+          </ul>
+        </section>
+      </div>
+      <video controls class="about__preview-video" [poster]="course.meta.courseVideoPreview.previewImageLink + '/cover.webp'">
+        <source [src]="course.meta.courseVideoPreview.link" type="application/x-mpegURL">
+      </video>
+    </section>
+    <section class="lessons">
+      <app-lesson-card class="lessons__card" *ngFor="let lesson of course.lessons" [lesson]="lesson"></app-lesson-card>
+    </section>
+  </main>
+  <ng-template #loading>
+    <app-loading></app-loading>
+  </ng-template>
+</div>
+

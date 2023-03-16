@@ -1,0 +1,37 @@
+.lesson {
+  display: flex;
+  border-radius: 10px;
+  display: flex;
+  border: 3px solid var(--accent);
+  margin: 20px 0;
+  overflow: hidden;
+
+  &--locked {
+    border: 3px solid rgb(134, 0, 0);
+  }
+
+  &__video{
+    width: 60%;
+    aspect-ratio: 16 / 9;
+    border-right: 3px solid var(--accent);
+
+    &--locked{
+      border-right: 3px solid rgb(134, 0, 0);
+    }
+  }
+
+  &__properties{
+    padding: 15px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__duration, &__status{
+    font-size: 20px;
+    color: var(--light);
+  }
+}

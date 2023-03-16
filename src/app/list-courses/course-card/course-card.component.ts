@@ -8,6 +8,7 @@ import { ICourse } from 'src/app/shared/interfaces/course';
 })
 export class CourseCardComponent {
 
-  @Input() course!: ICourse;
+  @Input()
+  public course!: ICourse;
 
 }

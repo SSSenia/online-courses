@@ -1,4 +1,4 @@
-<main class="main" *ngIf="courses$ | async as courses">
+<main class="main" *ngIf="courses$ | async as courses; else loading">
   <section class="list">
     <app-course-card class="list__card" *ngFor="let course of courses" [course]=course></app-course-card>
   </section>
@@ -10,3 +10,6 @@
     </a>
   </nav>
 </main>
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, switchMap, tap } from 'rxjs';
 import { ICourse } from 'src/app/shared/interfaces/course';
 import { CourseService } from 'src/app/shared/services/course.service';
 
@@ -20,8 +20,7 @@ export class DetailedCourseLayoutComponent implements OnInit{
 
   public ngOnInit(): void {
     this.course$ = this.route.params.pipe(
-      switchMap((params: Params)=>this.courseService.getCourses(params['courseId']))
-    );
+      switchMap((params: Params)=>this.courseService.getCourses(params['courseId'])));
     
   }
 
