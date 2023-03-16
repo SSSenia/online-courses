@@ -7,6 +7,10 @@
   display: flex;
   flex-direction: column;
 
+  @media screen and (max-width: 800px) {
+    width: 80vw;
+  }
+
   &:hover {
     transition-duration: .2s;
     outline: 5px solid var(--light);

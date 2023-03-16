@@ -1,26 +1,48 @@
 .lesson {
   display: flex;
   border-radius: 10px;
-  display: flex;
   border: 3px solid var(--accent);
   margin: 20px 0;
   overflow: hidden;
+  position: relative;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+
+  &__locked {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 20px;
+  }
 
   &--locked {
     border: 3px solid rgb(134, 0, 0);
   }
 
-  &__video{
+  &__video {
     width: 60%;
     aspect-ratio: 16 / 9;
     border-right: 3px solid var(--accent);
 
-    &--locked{
+    @media screen and (max-width: 600px) {
+      width: 100%;
+      border: none;
+      border-bottom: 3px solid var(--accent);
+    }
+
+    &--locked {
       border-right: 3px solid rgb(134, 0, 0);
+
+      @media screen and (max-width: 600px) {
+        border: none;
+        border-bottom: 3px solid rgb(134, 0, 0);
+      }
     }
   }
 
-  &__properties{
+  &__properties {
     padding: 15px;
     width: 40%;
     display: flex;
@@ -28,9 +50,14 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
   }
 
-  &__duration, &__status{
+  &__duration,
+  &__status {
     font-size: 20px;
     color: var(--light);
   }
