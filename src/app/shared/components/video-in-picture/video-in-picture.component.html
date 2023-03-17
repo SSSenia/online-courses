@@ -1,0 +1,8 @@
+<div class="pin" *ngIf="currentVideoUrl$ | async as currentVideoUrl" (keydown)="onKeyDown($event)">
+  <video controls class="pin__video" (timeupdate)="setCurrentTime($event, currentVideoUrl.url)">
+    <source [src]="currentVideoUrl.url+'#t='+currentVideoUrl.seconds" type="video/webm">>
+  </video>
+  <button class="pin__unpin" (click)="unPin()">
+    <img class="pin__img" src="../assets/img/picture-in-picture.svg" alt="picture-in-picture">
+  </button>
+</div>

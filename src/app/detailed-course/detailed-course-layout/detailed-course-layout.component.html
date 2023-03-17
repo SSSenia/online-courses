@@ -21,9 +21,15 @@
           </ul>
         </section>
       </div>
-      <video controls class="about__preview-video" [poster]="course.meta.courseVideoPreview.previewImageLink + '/cover.webp'">
-        <source [src]="course.meta.courseVideoPreview.link" type="application/x-mpegURL">
-      </video>
+      <div class="about__preview-video">
+        <app-video [url]="'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm'"></app-video>
+      </div>
+      <div class="about__speed">
+        To change the playback speed: click on video and press
+        <div class="about__shortcut">num +</div>
+        or <div class="about__shortcut">num -</div> .
+        Current speed: <div class="about__shortcut">{{speed$ | async}}</div>
+      </div>
     </section>
     <section class="lessons">
       <app-lesson-card class="lessons__card" *ngFor="let lesson of course.lessons" [lesson]="lesson"></app-lesson-card>
@@ -33,4 +39,3 @@
     <app-loading></app-loading>
   </ng-template>
 </div>
-

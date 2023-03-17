@@ -1,0 +1,20 @@
+<div class="wrapper" (keydown)="onKeyDown($event)">
+  <button class="pic-in-pic" (click)="pictureInPicture()">
+    <img class="pic-in-pic__img" src="../assets/img/picture-in-picture.svg" alt="picture-in-picture">
+  </button>
+  <div>
+    <video
+      *ngIf="(currentVideoUrl$ | async)?.url == null; else placeholder"
+      controls
+      class="video"
+      [poster]="poster + '/cover.webp'"
+      (timeupdate)="setCurrentTime($event)"
+      >
+      <source [src]="url+'#t='+ (url | startTime)" type="video/webm">
+      Browser not supported
+    </video>
+  </div>
+  <ng-template #placeholder>
+    <div class="placeholder"></div>
+  </ng-template>
+</div>

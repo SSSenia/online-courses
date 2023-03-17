@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { catchError, EMPTY, map, Observable, switchMap } from 'rxjs';
 import { ICourse } from 'src/app/shared/interfaces/course';
@@ -10,7 +10,8 @@ const MAX_CARDS = 10;
 @Component({
   selector: 'app-list-courses-layout',
   templateUrl: './list-courses-layout.component.html',
-  styleUrls: ['./list-courses-layout.component.scss']
+  styleUrls: ['./list-courses-layout.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListCoursesLayoutComponent implements OnInit {
 

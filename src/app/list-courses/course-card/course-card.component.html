@@ -1,6 +1,12 @@
 <a [routerLink]="['/course', course.id]">
-  <article class="card">
-    <img [src]="course.previewImageLink + '/cover.webp'" alt="preview" class="card__img">
+  <article class="card" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
+    <img *ngIf="!hover; else video" [src]="course.previewImageLink + '/cover.webp'" alt="preview" class="card__img">
+    <ng-template #video>
+      <video autoplay muted class="card__img" [poster]="course.meta.courseVideoPreview.previewImageLink + '/cover.webp'">
+        <source [src]="'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm'" type="video/webm">
+        Browser not supported
+      </video>
+    </ng-template>
     <h2 class="card__title">{{course.title}}</h2>
     <div class="card__description">{{course.description}}</div>
     <div class="options">
