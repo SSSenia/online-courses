@@ -13,8 +13,6 @@ export class VideoComponent implements OnInit {
 
   public currentVideoUrl$!: BehaviorSubject<IProgress | null>;
 
-  public currentTime: number = 0;
-
   @Input()
   public poster!: string;
 
@@ -31,12 +29,7 @@ export class VideoComponent implements OnInit {
 
   public pictureInPicture(): void {
     if (this.videoService.getCurrentVideoUrl().getValue()?.url == this.url) this.videoService.pinVideo(null);
-    else this.videoService.pinVideo(this.url, this.currentTime);
-  }
-
-  public setCurrentTime(data: Event): void {
-    this.currentTime = (data.target as HTMLVideoElement).currentTime;
-    if (this.currentTime) this.videoService.saveProgress(this.url, this.currentTime);
+    else this.videoService.pinVideo(this.url);
   }
 
   public onKeyDown(e: any): void {

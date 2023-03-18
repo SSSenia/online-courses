@@ -25,6 +25,14 @@
     border-bottom: 5px solid var(--light);
   }
 
+  &__video {
+    object-fit: cover;
+    object-position: center;
+    border-bottom: 5px solid var(--light);
+    width: 100%;
+    display: flex;
+  }
+
   &__title {
     text-align: center;
     font-size: 20px;

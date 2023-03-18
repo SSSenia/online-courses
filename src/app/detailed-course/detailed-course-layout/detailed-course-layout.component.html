@@ -22,7 +22,8 @@
         </section>
       </div>
       <div class="about__preview-video">
-        <app-video [url]="'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm'"></app-video>
+        <app-video [url]="course.meta.courseVideoPreview.link"
+          [poster]="course.meta.courseVideoPreview.previewImageLink"></app-video>
       </div>
       <div class="about__speed">
         To change the playback speed: click on video and press

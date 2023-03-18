@@ -1,0 +1,84 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: flex;
+}
+
+.loading {
+  position: relative;
+  background-color: var(--dark);
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  object-fit: contain;
+  overflow: hidden;
+
+  &__patch {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    border-radius: 10px;
+    animation: colors 2s linear infinite;
+    transition-timing-function: ease-in-out;
+
+    &--straight-bottom {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &__spin {
+    position: absolute;
+    top: 50%;
+    left: -20%;
+    transform: translate(-50%, -50%);
+    width: 150%;
+    height: 100px;
+    background-color: var(--light);
+    animation: spin 2s linear infinite;
+    transition-timing-function: ease-in-out;
+  }
+
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    background-color: var(--accent);
+  }
+
+  50% {
+    transform: rotate(180deg);
+    background-color: var(--light-low);
+  }
+
+  100% {
+    transform: rotate(360deg);
+    background-color: var(--accent);
+  }
+}
+
+@keyframes colors {
+  0% { background-color: var(--accent); }
+  50% { background-color: var(--light-low); }
+  100% { background-color: var(--accent); }
+}
+
+
+.player {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  &--hide{
+    display: none;
+  }
+}

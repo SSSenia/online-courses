@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <div class="loading" *ngIf="!loaded">
+    <div class="loading__spin"></div>
+    <div class="loading__patch" [ngClass]="{'loading__patch--straight-bottom': straight === 'bottom'}"></div>
+  </div>
+  <video
+    [ngClass]="{'player--hide': !loaded}"
+    [controls]="!preview"
+    [muted]="preview"
+    class="player"
+    #videoPlayer
+    id="videoPlayer"
+    (timeupdate)="setCurrentTime($event)"
+    >
+  </video>
+</div>

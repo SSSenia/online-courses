@@ -1,9 +1,13 @@
 <article class="lesson" [ngClass]="{'lesson--locked': lesson.status !== 'unlocked'}">
-  <video controls class="lesson__video" [ngClass]="{'lesson__video--locked': lesson.status !== 'unlocked'}" [poster]="lesson.previewImageLink + '/cover'  + '.webp'">
-    <source [src]="lesson.link" type="application/x-mpegURL">
-  </video>
+  <img class="lesson__locked" src="./assets/img/locked.svg" alt="locked" *ngIf="lesson.status === 'locked'; else video">
+  <ng-template #video>
+    <app-video
+      class="lesson__video"
+      [url]="lesson.link"
+      [poster]="lesson.previewImageLink + '/cover'  + '.webp'"
+    ></app-video>
+  </ng-template>
   <div class="lesson__properties">
-    <img class="lesson__locked" src="./assets/img/locked.svg" alt="locked" *ngIf="lesson.status === 'locked'">
     <h2 class="lesson__title">№{{lesson.order}} {{lesson.title}}</h2>
     <div class="lesson__duration">Duration: {{lesson.duration | duration}}</div>
     <div class="lesson__status">Status lesson: {{lesson.status}}</div>

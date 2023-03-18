@@ -3,6 +3,7 @@
   bottom: 3vw;
   right: 3vw;
   width: 30vw;
+  border-radius: 10px;
 
   &__video {
     width: 100%;
@@ -10,8 +11,8 @@
 
   &__unpin {
     position: fixed;
-    bottom: calc(3vw + 102px);
-    right: calc(3vw + 2px);
+    bottom: calc(16vw);
+    right: calc(3.9vw);
     background-color: var(--dark);
     width: 30px;
     height: 30px;
