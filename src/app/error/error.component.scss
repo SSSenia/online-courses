@@ -1,10 +1,11 @@
 .error {
-  height: calc(100vh - 171px);
+  height: calc(100vh - 178px);
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--light);
   flex-direction: column;
+  background-color: var(--dark);
 
   &__message {
     font-size: 3vw;

@@ -15,8 +15,6 @@ export class CourseService {
   ) { }
 
   public getCourses(courseId: string): Observable<ICourse> {
-    console.log(document.pictureInPictureEnabled);
-
     let search = this.courses.find(value => value.id === courseId);
     if (search) return of(search);
     return this.http.get<{ token: string }>('https://api.wisey.app/api/v1/auth/anonymous?platform=subscriptions').pipe(
