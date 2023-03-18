@@ -17,12 +17,10 @@ export class CourseCardComponent {
 
   public mouseEnter() {
     this.hover = true;
-    console.log('enter', this.course);
   }
 
   public mouseLeave() {
     this.hover = false;
-    console.log('leave', this.course);
   }
 
 }
