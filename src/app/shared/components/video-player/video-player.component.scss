@@ -38,11 +38,10 @@
 
   &__spin {
     position: absolute;
-    top: 50%;
-    left: -20%;
-    transform: translate(-50%, -50%);
+    top: 30%;
+    left: -25%;
     width: 150%;
-    height: 100px;
+    height: 40%;
     background-color: var(--light);
     animation: spin 2s linear infinite;
     transition-timing-function: ease-in-out;
